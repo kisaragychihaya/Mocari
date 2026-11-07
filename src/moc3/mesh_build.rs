@@ -279,8 +279,7 @@ fn update_moc3_drawable_mesh_for_pose(
         art_mesh_index,
         parameter_values,
         |target, weight| {
-            let source =
-                art_mesh_keyforms.blend_shape_positions(target, scratch.positions.len())?;
+            let source = art_mesh_keyforms.blend_shape_positions(art_mesh_index, target)?;
             apply_position_deltas(&mut scratch.positions, source, weight)
         },
     )?;
